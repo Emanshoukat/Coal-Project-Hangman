@@ -1,43 +1,6 @@
 # Coal-Project-Hangman
 
-.MODEL SMALL
-.STACK 100H
 
-.DATA
-    ; -----------------------------------------------
-    ; Word Bank (each word padded/ended with $)
-    ; -----------------------------------------------
-    word0   DB 'COAL$'
-    word1   DB 'PROJECT$'
-    word2   DB 'LOSER$'
-    word3   DB 'KROOS$'
-    word4   DB 'MONITOR$'
-    word5   DB 'STUPID$'
-    word6   DB 'RESUME$'
-    word7   DB 'PAGAL$'
-
-    wordPtrs DW OFFSET word0, OFFSET word1, OFFSET word2, OFFSET word3,
-              DW OFFSET word4, OFFSET word5, OFFSET word6, OFFSET word7
-
-    ; -----------------------------------------------
-    ; Game State
-    ; -----------------------------------------------
-    currentWord DB 20 DUP('$')
-    guessedWord DB 20 DUP('_')
-    wrongGuesses DB 20 DUP(0)
-    wordLen      DB 0
-    wrongCount   DB 0
-    guessedCount DB 0
-    gameOver     DB 0
-
-    ; -----------------------------------------------
-    ; Messages
-    ; -----------------------------------------------
-    msgTitle    DB '=========== HANGMAN GAME ===========', 13, 10, '$'
-    msgGuess    DB 13, 10, 'Enter a letter: $'
-    msgWrong    DB 13, 10, 'Wrong! Try again.', 13, 10, '$'
-    msgCorrect  DB 13, 10, 'Correct!', 13, 10, '$'
-    msgAlready  DB 13, 10, 'Already guessed that letter!', 13, 10, '$'
     msgWin      DB 13, 10, '*** YOU WIN! Congratulations! ***', 13, 10, '$'
     msgLose     DB 13, 10, '*** YOU LOSE! Better luck next time! ***', 13, 10, '$'
     msgWord     DB 13, 10, 'The word was: $'
